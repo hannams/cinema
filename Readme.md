@@ -1,5 +1,9 @@
 # Cinema Schedule
 
+#### Мокапы
+https://www.figma.com/proto/75aIHOwQfS8POKMlJZRIPL/Project-Cinema?node-id=5%3A6&scaling=min-zoom
+https://www.figma.com/file/75aIHOwQfS8POKMlJZRIPL/Project-Cinema?node-id=0%3A1
+
 **Cinema Schedule** - это сервис, на котором проиходит администрирование сеансов в кинотеатре. 
 
 #### Функционал данного веб-приложения следующий:
