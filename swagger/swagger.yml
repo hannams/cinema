@@ -1,0 +1,382 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Swagger"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+  - name: "User"
+    description: "Everything about User"
+  - name: "Movie"
+    description: "Everything about movie"
+  - name: "Screening"
+    description: "Everything about Survey"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /auth/signup:
+    post:
+      tags:
+        - "User"
+      summary: "Create new user"
+      description: ""
+      operationId: "createUser"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: ""
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+                example: "userName"
+              email:
+                type: "string"
+                example: "user@gmail.com"
+              password:
+                type: "string"
+                example: "123456"
+            required:
+              - name
+              - email
+              - password
+      responses:
+        "201":
+          description: "Created"
+        "400":
+          description: "User with such email already exists"
+  /oauth/token:
+    post:
+      tags:
+        - "User"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: ""
+          required: true
+          schema:
+            type: "object"
+            properties:
+              password:
+                type: "string"
+                example: "admin"
+              username:
+                type: "string"
+                example: "admin@example.com"
+              grant_type:
+                type: "string"
+                example: "password"
+              client_id:
+                type: "string"
+                example: "1"
+              client_secret:
+                type: "string"
+                example: "aIXVKbRYnIQFE4W2L8YzdKLdQZGC22YcJlQEkrga"
+            required:
+              - email
+              - password
+              - username
+              - grant_type
+              - client_id
+              - client_secret
+      responses:
+        "202":
+          description: "Accepted"
+          schema:
+            type: "object"
+            properties:
+              access_token:
+                type: "string"
+              refresh_token:
+                type: "string"
+              token_type:
+                type: "string"
+                example: "Bearer"
+                description: "only Bearer"
+              expires_in:
+                type: "string"
+        "404":
+          description: "User not found"
+  /api/user:
+    get:
+      tags:
+        - "User"
+      summary: "Get details about user's account"
+      description: ""
+      operationId: "getUser"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "header"
+          in: "body"
+          description: ""
+          required: true
+          schema:
+            type: "object"
+            properties:
+              Authorization:
+                type: "string"
+                example: "Bearer user_token"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              id:
+                type: "integer"
+                example: 1
+              name:
+                type: "string"
+                example: "userName"
+              email:
+                type: "string"
+                example: "user@gmail.com"
+              created_at:
+                type: "string"
+              updated_at:
+                type: "string"
+        "401":
+          description: "Unauthorized"
+        "400":
+          description: "Token is not valid"
+  /auth/token:
+    post:
+      tags:
+        - "User"
+      summary: "Update token"
+      description: ""
+      operationId: "updateToken"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: ""
+          required: true
+          schema:
+            type: "object"
+            properties:
+              refresh_token:
+                type: "string"
+            required:
+              - refresh_token
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              access_token:
+                type: "string"
+              refresh_token:
+                type: "string"
+              expires_in:
+                type: "string"
+        "400":
+          description: "Refresh token is not valid"
+
+  /api/movie:
+    get:
+      tags:
+        - "Movie"
+      summary: "Get all movies"
+      description: ""
+      operationId: "getMovies"
+      responses:
+        200:
+          description: "Successful"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Movie"
+    post:
+      tags:
+        - "Movie"
+      summary: "Add movie in the store"
+      description: ""
+      operationId: "postMovies"
+      consumes:
+        - "application/json"
+        - "application/xml"
+      produces:
+        - "applications/json"
+        - "application/xml"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Movie object that needs to be added to the store"
+          required: true
+          schema:
+            $ref: "#/definitions/PostMovie"
+      responses:
+        200:
+          description: "Successful"
+          schema:
+            $ref: "#/definitions/Movie"
+        400:
+          description: "Bad input"
+
+  /api/movie/{movieId}:
+    get:
+      tags:
+        - "Movie"
+      summary: "Get the movie by ID"
+      description: "Returns a single movie"
+      operationId: "getMovieById"
+      produces:
+        - "application/json"
+        - "application/xml"
+      parameters:
+        - name: "movieId"
+          in: "path"
+          description: "Id of a movie to return"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        200:
+          description: "Successful"
+          schema:
+            $ref: "#/definitions/Movie"
+        400:
+          description: "Invalid ID"
+        404:
+          description: "Movie not found"
+    put:
+      tags:
+        - "Movie"
+      summary: "Update an existing movie"
+      description: ""
+      operationId: "updateMovie"
+      consumes:
+        - "application/json"
+        - "application/xml"
+      produces:
+        - "application/json"
+        - "application/xml"
+      parameters:
+        - name: "movieId"
+          in: "path"
+          description: "Movie ID to update"
+          required: true
+          type: "integer"
+          format: "int64"
+        - in: "body"
+          name: "body"
+          description: "test object that needs to be added to the store"
+          required: true
+          schema:
+            $ref: "#/definitions/PutMovie"
+      responses:
+        200:
+          description: "Successful"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Movie not found"
+        405:
+          description: "Validation exception"
+    delete:
+      tags:
+        - "Movie"
+      summary: "Delete a movie"
+      description: ""
+      operationId: "deleteMovie"
+      produces:
+        - "application/json"
+        - "application/xml"
+      parameters:
+        - name: "movieId"
+          in: "path"
+          description: "Movie ID to delete"
+          required: true
+          type: "integer"
+          format: "int64"
+      responses:
+        200:
+          description: "Successful"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Movie not found"
+definitions:
+  Movie:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      movie_nameRu:
+        type: "string"
+      movie_nameEng:
+        type: "string"
+      country:
+        type: "string"
+      duration:
+        type: "string"
+        format: "time"
+      rental_start:
+        type: "string"
+        format: "date"
+      rental_end:
+        type: "string"
+        format: "date"
+  PostMovie:
+    type: "object"
+    properties:
+      movie_nameRu:
+        type: "string"
+      movie_nameEng:
+        type: "string"
+      country:
+        type: "string"
+      duration:
+        type: "string"
+        format: "time"
+      rental_start:
+        type: "string"
+        format: "date"
+      rental_end:
+        type: "string"
+        format: "date"
+  PutMovie:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      movie_nameRu:
+        type: "string"
+      movie_nameEng:
+        type: "string"
+      country:
+        type: "string"
+      duration:
+        type: "string"
+        format: "time"
+      rental_start:
+        type: "string"
+        format: "date"
+      rental_end:
+        type: "string"
+        format: "date"
+
