@@ -1,0 +1,36 @@
+.movie{
+    width: 940px;
+    min-height: 303px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(116, 105, 76);
+}
+
+.movie__img{
+    width: 550px;
+    height: 303px;
+}
+
+.movie__img img {
+    width: 120%;
+    height: 100%;
+}
+
+.movie__info{
+    padding-left: 77px;
+    font-family: Rosario;
+}
+
+.movie__nameRu {
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.movie__time-item, .movie__country-block {
+    display: flex;
+}
+
+.movie__time-item i {
+    font-size: 16px;
+    display: block;
+}
