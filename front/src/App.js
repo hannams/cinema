@@ -1,10 +1,9 @@
 import React from 'react';
-import Header from "./components/share-component/header/Header";
+import Movie from './components/movie/Movie'
 
 function App() {
   return (
-      <Header />
-  );
-}
+      <Movie />
+  )}
 
 export default App;
