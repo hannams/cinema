@@ -1,0 +1,49 @@
+.movie {
+    width: 940px;
+    min-height: 303px;
+    display: flex;
+    font-family: 'Rosario', sans-serif;
+    font-size: 14px;
+}
+
+.movie__img img{
+    width: 204px;
+    height: 303px;
+}
+
+.movie__info {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.movie__nameRu {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+}
+
+.movie__nameEng {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.movie__time-block  {
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.movie__country-block {
+    display: flex;
+    width: 130px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.movie__descr {
+    margin-top: 20px;
+}
