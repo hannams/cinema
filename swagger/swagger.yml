@@ -8,7 +8,7 @@ tags:
   - name: "User"
     description: "Everything about User"
   - name: "Movie"
-    description: "Everything about header"
+    description: "Everything about movie"
   - name: "Screening"
     description: "Everything about Survey"
 schemes:
