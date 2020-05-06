@@ -211,7 +211,7 @@ paths:
     post:
       tags:
         - "Movie"
-      summary: "Add movie in the store"
+      summary: "Add header in the store"
       description: ""
       operationId: "postMovies"
       consumes:
@@ -239,8 +239,8 @@ paths:
     get:
       tags:
         - "Movie"
-      summary: "Get the movie by ID"
-      description: "Returns a single movie"
+      summary: "Get the header by ID"
+      description: "Returns a single header"
       operationId: "getMovieById"
       produces:
         - "application/json"
@@ -248,7 +248,7 @@ paths:
       parameters:
         - name: "movieId"
           in: "path"
-          description: "Id of a movie to return"
+          description: "Id of a header to return"
           required: true
           type: "integer"
           format: "int64"
@@ -264,7 +264,7 @@ paths:
     put:
       tags:
         - "Movie"
-      summary: "Update an existing movie"
+      summary: "Update an existing header"
       description: ""
       operationId: "updateMovie"
       consumes:
@@ -298,7 +298,7 @@ paths:
     delete:
       tags:
         - "Movie"
-      summary: "Delete a movie"
+      summary: "Delete a header"
       description: ""
       operationId: "deleteMovie"
       produces:
