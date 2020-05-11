@@ -1,6 +1,6 @@
 import React from "react";
 import {Movie as movieData} from "./../../utils/initialData";
-import "./style.css";
+import "./movie.css";
 
 
 const Movie = () => {

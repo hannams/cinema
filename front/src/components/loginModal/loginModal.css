@@ -1,0 +1,58 @@
+.modal{
+    display: inline-block;
+    margin: auto;
+    width: 647px;
+    height: 506px;
+    background: #121F3F;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.37);
+    border-radius: 7px;
+}
+.form{
+    margin: auto;
+    padding: 50px;
+}
+
+.form input {
+    border: 1px solid #c6c7cc;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+    color: #636466;
+    padding: 6px;
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.login-btn {
+    margin-top: 46px;
+    position: relative;
+    left: 200px;
+}
+.form p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 72px;
+    color: #fff;
+    text-align: center;
+}
+
+.registration {
+    display: flex;
+    justify-content: center;
+    
+}
+.registration p {
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    margin: 3px 55px;
+
+}
+.registration a {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #BFA197;
+}

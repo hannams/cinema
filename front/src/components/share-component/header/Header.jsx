@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './header.css';
+import Button from "../button/Button";
 
 const Header = ({hasToken, logout}) => {
    // const history = useHistory();
@@ -26,7 +27,8 @@ const Header = ({hasToken, logout}) => {
                     <a href="/screenings" className="header__nav-item">Сеансы</a>
                 </div>
             </div>
-            <button className="header__btn" onClick={() => action.handleClick()}>{action.label}</button>
+            <Button className="header__btn" onClick={() => action.handleClick()}>{action.label}</Button>
+            {/* <button className="header__btn" onClick={() => action.handleClick()}>{action.label}</button> */}
         </div>
     )
 

@@ -43,10 +43,7 @@
     font-size: 18px;
     line-height: 27px;
     letter-spacing: 0.045em;
-    background: #6B5961;
-    box-shadow: inset 0px -3px 3px rgba(0, 0, 0, 0.4);
-    border: none;
-    color: #fff;
+    
 }
 
 .header__btn:hover {
