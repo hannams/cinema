@@ -6,11 +6,13 @@ import Input from './components/share-component/input/Input';
 import LoginForm from './components/loginForm/LoginForm';
 import { Router } from 'react-router-dom';
 import LoginPage from './components/page/loginPage/LoginPage';
+import RegisterForm from './components/registerForm/RegisterForm';
+import RegisterPage from './components/page/registerPage/RegisterPage';
 
 function App() {
   return (
   
-    <LoginPage />
+    <RegisterPage/>
       
   )}
 
