@@ -4,12 +4,9 @@ import PropTypes from 'prop-types';
 
 const Button = ({type, title}) => {
     return (
-        <div className="container">
             <button className="btn" type={type}>
                 {title}
             </button>
-        </div>
-    
     )
 };
 

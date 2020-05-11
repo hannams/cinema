@@ -1,11 +1,13 @@
 import React from "react";
-import Input from "../share-component/input/Input";
-import Button from "../share-component/button/Button";
+import Input from "../../../share-component/input/Input";
+import Button from "../../../share-component/button/Button";
 import './loginForm.css';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import { useToasts } from "react-toast-notifications";
 
 const LoginForm = () => {
+    const {addToast } = useToasts();
   const initialValues = {
     email: "",
     password: "",
@@ -21,12 +23,18 @@ const LoginForm = () => {
       })}
       onSubmit={(values) => {
         console.log(values);
+        addToast("Вход выполнен", {
+            appearance: "success",
+            autoDismiss: true
+        })
       }}
     >
-      <Form className="loginForm">
+      <Form className="form__group">
         <Input type="email" name="email" placeholder="Эл. почта" />
         <Input type="password" name="password" placeholder="Пароль" />
         <Button type="submit" title="Отправить" />
+
+        <p className="form__message">Нет аккаунта? Зарегистрируйтесь сейчас.</p>
       </Form>
     </Formik>
   );
