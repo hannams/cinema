@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 
 const Button = ({type, title}) => {
     return (
-    <button className="btn" type={type}>
-        {title}
-    </button>
+        <div className="container">
+            <button className="btn" type={type}>
+                {title}
+            </button>
+        </div>
+    
     )
 };
 
