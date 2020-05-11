@@ -1,0 +1,27 @@
+.form{
+    display: inline-block;
+    margin: auto;
+    width: 647px;
+    height: 506px;
+    background: #121F3F;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.37);
+    border-radius: 7px;
+}
+
+/*  */
+ 
+.form p {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.registration {
+    display: flex;
+    justify-content: center;
+    
+}
