@@ -1,11 +1,13 @@
 import React from "react";
-import Input from "../share-component/input/Input";
-import Button from "../share-component/button/Button";
+import Input from "../../../share-component/input/Input";
+import Button from "../../../share-component/button/Button";
 import './registerForm.css';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import { useToasts } from "react-toast-notifications";
 
 const RegisterForm = () => {
+  const {addToast} = useToasts();
   const initialValues = {
     login: "",
     email: "",
@@ -28,10 +30,22 @@ const RegisterForm = () => {
             .required("Обязательно")
       })}
       onSubmit={(values) => {
-        console.log(values);
+        
+        if(values.password === values.confirmPassword){
+          addToast("Регистрация выполнена", {
+            appearance: "success",
+            autoDismiss: true
+          });
+          console.log(values);
+        }else{
+          addToast("Неверный пароль", {
+            appearance: "error",
+            autoDismiss: true
+          })          
+        }
       }}
     >
-      <Form className="registerForm">
+      <Form className="form__group">
         <Input type="text" name="login" placeholder="Логин" />    
         <Input type="email" name="email" placeholder="Эл. почта" />
         <Input type="password" name="password" placeholder="Пароль" />

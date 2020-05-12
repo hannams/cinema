@@ -1,0 +1,15 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #121F3F;
+}
+
+.login h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    color: #fff;
+}
