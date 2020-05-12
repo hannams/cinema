@@ -1,0 +1,27 @@
+/* .form{
+    display: inline-block;
+    margin: auto;
+    width: 647px;
+    height: 600px;
+    background: #121F3F;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.37);
+    border-radius: 7px;
+} */
+
+
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #121F3F;
+}
+ 
+.register h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    color: #fff;
+}
+

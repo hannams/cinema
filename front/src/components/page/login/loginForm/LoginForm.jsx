@@ -16,16 +16,17 @@ const LoginForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={Yup.object({
-        email: Yup.string().email("Invalid email address").required("Required"),
+        email: Yup.string().email("Неверная эл. почта").required("Обязательно"),
         password: Yup.string()
-          .max(15, "Must be 15 characters or less")
-          .required("Required"),
+          .max(15, "Должно быть 15 или меньше символов")
+          .required("Обязательно"),
       })}
       onSubmit={(values) => {
         console.log(values);
         addToast("Вход выполнен", {
             appearance: "success",
-            autoDismiss: true
+            autoDismiss: true,
+            
         })
       }}
     >
