@@ -5,8 +5,9 @@ import './loginForm.css';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useToasts } from "react-toast-notifications";
+import PropTypes from 'prop-types';
 
-const LoginForm = () => {
+const LoginForm = ({loginUser}) => {
     const {addToast } = useToasts();
   const initialValues = {
     email: "",
@@ -21,13 +22,25 @@ const LoginForm = () => {
           .max(15, "Должно быть 15 или меньше символов")
           .required("Обязательно"),
       })}
-      onSubmit={(values) => {
+      onSubmit={(values, action) => {
         console.log(values);
-        addToast("Вход выполнен", {
-            appearance: "success",
-            autoDismiss: true,
-            
+        const user = {
+          password: values.password,
+          username: values.email,
+        };
+        loginUser(user) 
+        .then(() => {
+          action.resetForm();
+          addToast("Вход выполнен", {
+              appearance: "success",
+              autoDismiss: true,
+          });
         })
+        // addToast("Вход выполнен", {
+        //     appearance: "success",
+        //     autoDismiss: true,
+            
+        // })
       }}
     >
       <Form className="form__group">
@@ -40,5 +53,9 @@ const LoginForm = () => {
     </Formik>
   );
 };
+
+LoginForm.propType = {
+  loginUser: PropTypes.func.isReqired,
+}
 
 export default LoginForm;
