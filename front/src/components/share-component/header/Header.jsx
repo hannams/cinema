@@ -4,15 +4,14 @@ import './header.css';
 import Button from "../button/Button";
 
 const Header = ({hasToken, logout}) => {
-   // const history = useHistory();
+    const history = useHistory();
 
     const action = hasToken
         ? {
             handleClick: () => logout(),
             label: "Выйти",
         } : {
-        // вызов модального окна входа
-            handleClick: () => 'df',
+            handleClick: () => history.push('/login'),
             label: "Войти"
         };
 
@@ -28,13 +27,12 @@ const Header = ({hasToken, logout}) => {
                 </div>
             </div>
             <Button className="header__btn" onClick={() => action.handleClick()}>{action.label}</Button>
-            {/* <button className="header__btn" onClick={() => action.handleClick()}>{action.label}</button> */}
         </div>
     )
 
 };
 
-/* Header.propTypes = {
+ Header.propTypes = {
     hasToken: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
 };
@@ -43,7 +41,7 @@ const Header = ({hasToken, logout}) => {
 Header.defaultProps = {
     hasToken: false,
 };
-*/
+
 
 
 export default Header;
